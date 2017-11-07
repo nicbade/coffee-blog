@@ -1,22 +1,34 @@
 <div ng-include="'views/partials/nav.html'"></div>
-<div ng-repeat="review in ac.AdminService.review.list" layout-align="center center">
-    <!-- {{ac}} -->
-    <md-content class="md-padding" col="50" layout="row">
-        <div flex-xs layout="column">
-            <md-card>
-                <md-card-title>
-                    <md-card-title-text>
-                        <span class="md-headline">{{review.name}}</span>
-                        <span class="md-subhead">{{review.date | date}}</span>
-                        <span>{{review.address}}</span>
-                        <span>{{review.food}}</span>
-                        <span>Cost: {{review.price | currency}}</span>
-                        <span>Review: {{review.review}}</span>
-                    </md-card-title-text>
-                </md-card-title>
-            </md-card>
+<div class="box">
+    <div class="container-1">
+        <span class="icon">
+            <i class="fa fa-search"></i>
+        </span>
+        <input type="search" id="search" ng-model="searchBox" placeholder="Search...">
+    </div>
+</div>
+<div layout="row" layout-xs="column">
+    <div ng-repeat="review in ac.AdminService.review.list | filter: searchBox">
+        <!-- {{ac}} -->
+        <div flex>
+            <md-content class="md-padding" col="50" layout="row">
+                <div flex-xs layout="row">
+                    <md-card id="card">
+                        <md-card-title>
+                            <md-card-title-text>
+                                <span class="md-headline">{{review.name}}</span>
+                                <span class="md-subhead">{{review.date | date}}</span>
+                                <span>{{review.address}}</span>
+                                <span>{{review.food}}</span>
+                                <span>Cost: {{review.price | currency}}</span>
+                                <span>Review: {{review.review}}</span>
+                            </md-card-title-text>
+                        </md-card-title>
+                    </md-card>
 
+                </div>
+            </md-content>
         </div>
-    </md-content>
+    </div>
 </div>
 </div>

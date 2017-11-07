@@ -11,7 +11,7 @@ body, html {
 }
 
 .instructions {
-  background-color: #333333;
+  background-color: #2b303b;
   color: #DDDDDD;
   padding: 15px;
 }
@@ -49,7 +49,7 @@ body, html {
 }
 
 .navbar {
-  background-color: #333333;
+  background-color: #2b303b;
   width: 100%;
   border-radius: 0px;
 }
@@ -83,4 +83,53 @@ li a:hover {
   border: 1px solid black;
 }
 
+#card {
+  width: 400px;
+  height: 250px;
+  /* text-align: center; */
+}
 
+.box {
+  margin: 10px;
+  width: 300px;
+  height: 50px;
+}
+
+.container-1 {
+  width: 300px;
+  vertical-align: middle;
+  white-space: nowrap;
+  position: relative;
+}
+
+.container-1 input#search{
+  width: 200px;
+  height: 40px;
+  background: #2b303b;
+  border: none;
+  font-size: 10pt;
+  float: left;
+  color: #63717f;
+  padding-left: 45px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.container-1 input#search::-webkit-input-placeholder {
+  color: #65737e;
+}
+
+.container-1 .icon{
+  position: absolute;
+  top: 50%;
+  margin-left: 17px;
+  margin-top: 17px;
+  z-index: 1;
+  color: #4f5b66;
+}
+
+.container-1 input#search:hover, .container-1 input#search:focus, .container-1 input#search:active{
+  outline:none;
+  background: #ffffff;
+}
