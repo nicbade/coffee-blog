@@ -24,7 +24,7 @@ myApp.config(function($routeProvider, $locationProvider) {
     })
     .when('/shops', {
       templateUrl: '/views/templates/shops.html',
-      controller: 'InfoController',
+      controller: 'AdminController as ac',
       resolve: {
         getuser : function(UserService){
           return UserService.getuser();

@@ -1,3 +1,5 @@
+<div ng-include="'views/partials/nav.html'"></div>
+
 <div id="form" class="md-inline-form" layout="column" ng-cloak layout-align="center center">
 
     <md-content layout="row" layout-padding>
@@ -26,15 +28,17 @@
                             <input ng-model="ac.review.address" places-auto-complete size=50 component-restrictions="{country:'us'}" aria-label="address">
                         </md-input-container>
                     </div>
-
+                    <div>
+                        <h4>Food</h4>
+                    </div>
                     <div layout="row">
-                        <div>
-                            <h4>Food</h4>
-                        </div>
+
                         <md-radio-group layout="row" ng-model="ac.review.food" aria-label="is food available?">
                             <md-radio-button value=true class="md-primary" aria-label="yes">Yes</md-radio-button>
                             <md-radio-button value=false class="md-primary" aria-label="no">No</md-radio-button>
                         </md-radio-group>
+                    </div>
+                    <div>
                         <md-input-container>
                             <label for="shopPrice">Price Range</label>
                             <input type="number" name="shopPrice" ng-model="ac.review.shopPrice">
@@ -45,7 +49,7 @@
                     <div layout="row">
                         <md-input-container class="md-block">
                             <label>Review</label>
-                            <textarea ng-model="ac.review.review" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+                            <textarea ng-model="ac.review.review" md-maxlength="150" cols="50" rows="5" md-select-on-focus></textarea>
                         </md-input-container>
                     </div>
 

@@ -1,6 +1,22 @@
 <div ng-include="'views/partials/nav.html'"></div>
-<div class="container">
-  <p>
-    Shops
-  </p>
+<div ng-repeat="review in ac.AdminService.review.list" layout-align="center center">
+    <!-- {{ac}} -->
+    <md-content class="md-padding" col="50" layout="row">
+        <div flex-xs layout="column">
+            <md-card>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">{{review.name}}</span>
+                        <span class="md-subhead">{{review.date | date}}</span>
+                        <span>{{review.address}}</span>
+                        <span>{{review.food}}</span>
+                        <span>Cost: {{review.price | currency}}</span>
+                        <span>Review: {{review.review}}</span>
+                    </md-card-title-text>
+                </md-card-title>
+            </md-card>
+
+        </div>
+    </md-content>
+</div>
 </div>
