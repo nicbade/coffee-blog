@@ -7,13 +7,13 @@
         <input type="search" id="search" ng-model="searchBox" placeholder="Search...">
     </div>
 </div>
-<div layout="row" layout-xs="column">
+<div layout="row" layout-xs="column" class="centered">
     <div ng-repeat="review in ac.AdminService.review.list | filter: searchBox">
         <!-- {{ac}} -->
         <div flex>
-            <md-content class="md-padding" col="50" layout="row">
+            <md-content layout="row" layout-wrap layout-margin class="cards">
                 <div flex-xs layout="row">
-                    <md-card id="card">
+                    <md-card class="card">
                         <md-card-title>
                             <md-card-title-text>
                                 <span class="md-headline">{{review.name}}</span>
@@ -29,6 +29,16 @@
                 </div>
             </md-content>
         </div>
+        <!-- <section class="cards">
+            <article class="card">
+                    <span class="md-headline">{{review.name}}</span>
+                    <span class="md-subhead">{{review.date | date}}</span>
+                    <span>{{review.address}}</span>
+                    <span>{{review.food}}</span>
+                    <span>Cost: {{review.price | currency}}</span>
+                    <span>Review: {{review.review}}</span>
+            </article>
+        </section> -->
     </div>
 </div>
 </div>

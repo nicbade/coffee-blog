@@ -83,8 +83,8 @@ li a:hover {
   border: 1px solid black;
 }
 
-#card {
-  width: 400px;
+.card {
+  width: 300px;
   height: 250px;
   /* text-align: center; */
 }
@@ -132,4 +132,10 @@ li a:hover {
 .container-1 input#search:hover, .container-1 input#search:focus, .container-1 input#search:active{
   outline:none;
   background: #ffffff;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
