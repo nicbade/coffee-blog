@@ -1,0 +1,20 @@
+<div class="container" layout="column" layout-align="center center">
+    <h1>Admin</h1>
+
+    <form class="form">
+        <md-input-container>
+            <label for="shopName">Coffee Shop</label>
+            <input type="text" name="shopName" ng-model="shopName">
+        </md-input-container>
+
+        <md-input-container>
+            <input ng-model="address" places-auto-complete size=50 component-restrictions="{country:'us'}" aria-label="address">
+        </md-input-container>
+
+        <h4>Food</h4>
+        <md-radio-group layout="row" ng-model="food" aria-label="is food available?">
+            <md-radio-button value="yes" class="md-primary" aria-label="yes"></md-radio-button>
+            <md-radio-button value="no" class="md-primary" aria-label="no"></md-radio-button>
+        </md-radio-group>
+    </form>
+</div>
