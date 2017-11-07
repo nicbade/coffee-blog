@@ -1,20 +1,50 @@
-<div class="container" layout="column" layout-align="center center">
-    <h1>Admin</h1>
+<div class="md-inline-form" layout="column" ng-cloak layout-align="center center">
 
-    <form class="form">
-        <md-input-container>
-            <label for="shopName">Coffee Shop</label>
-            <input type="text" name="shopName" ng-model="shopName">
-        </md-input-container>
+    <md-content layout-gt-sm="row" layout-padding>
+        <div>
+            <h1>Admin</h1>
+        </div>
 
-        <md-input-container>
-            <input ng-model="address" places-auto-complete size=50 component-restrictions="{country:'us'}" aria-label="address">
-        </md-input-container>
+    </md-content>
 
-        <h4>Food</h4>
-        <md-radio-group layout="row" ng-model="food" aria-label="is food available?">
-            <md-radio-button value="yes" class="md-primary" aria-label="yes"></md-radio-button>
-            <md-radio-button value="no" class="md-primary" aria-label="no"></md-radio-button>
-        </md-radio-group>
-    </form>
+    <md-content>
+        <div>
+            <form name="form">
+                <div layout-gt="row">
+                    <md-input-container class="md-block" flex-gt>
+                        <label for="shopName">Coffee Shop</label>
+                        <input type="text" name="shopName" ng-model="review.shopName">
+                    </md-input-container>
+                    <md-input-container>
+                        <label>Enter Date</label>
+                        <md-datepicker ng-model="review.date"></md-datepicker>
+                    </md-input-container>
+                </div>
+                <div layout-gt="row">
+                    <md-input-container class="md-block" flex-gt>
+                        <input ng-model="review.address" places-auto-complete size=50 component-restrictions="{country:'us'}" aria-label="address">
+                    </md-input-container>
+                </div>
+                <div layout-gt="row">
+                    <h4>Food</h4>
+                    <md-radio-group layout="row" ng-model="review.food" aria-label="is food available?">
+                        <md-radio-button value="yes" class="md-primary" aria-label="yes"></md-radio-button>
+                        <md-radio-button value="no" class="md-primary" aria-label="no"></md-radio-button>
+                    </md-radio-group>
+                    <md-input-container>
+                        <label for="shopPrice">Price Range</label>
+                        <input type="number" name="shopPrice" ng-model="review.shopPrice">
+                    </md-input-container>
+                </div>
+
+
+                <div layout-gt="row">
+                    <md-input-container>
+                        <label>Review</label>
+                        <textarea ng-model="review.review" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+                    </md-input-container>
+                </div>
+            </form>
+        </div>
+    </md-content>
 </div>
