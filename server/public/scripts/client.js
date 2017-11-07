@@ -33,7 +33,7 @@ myApp.config(function($routeProvider, $locationProvider) {
     })
     .when('/admin', {
       templateUrl: '/views/templates/admin.html',
-      controller: 'AdminController',
+      controller: 'AdminController as ac',
       resolve: {
         getuser : function(UserService){
           return UserService.getuser();

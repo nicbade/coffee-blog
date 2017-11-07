@@ -1,50 +1,60 @@
-<div class="md-inline-form" layout="column" ng-cloak layout-align="center center">
+<div id="form" class="md-inline-form" layout="column" ng-cloak layout-align="center center">
 
-    <md-content layout-gt-sm="row" layout-padding>
+    <md-content layout="row" layout-padding>
         <div>
             <h1>Admin</h1>
         </div>
 
     </md-content>
+    <md-card class="review" ng-controller="AdminController as ac">
+        <md-content>
+            <div>
+                <form name="form">
+                    <div layout="row">
+                        <md-input-container class="md-block">
+                            <label for="shopName">Coffee Shop</label>
+                            <input type="text" name="shopName" ng-model="ac.review.shopName">
+                        </md-input-container>
+                        <md-input-container>
+                            <label>Enter Date</label>
+                            <md-datepicker ng-model="ac.review.date"></md-datepicker>
+                        </md-input-container>
+                    </div>
 
-    <md-content>
-        <div>
-            <form name="form">
-                <div layout-gt="row">
-                    <md-input-container class="md-block" flex-gt>
-                        <label for="shopName">Coffee Shop</label>
-                        <input type="text" name="shopName" ng-model="review.shopName">
-                    </md-input-container>
-                    <md-input-container>
-                        <label>Enter Date</label>
-                        <md-datepicker ng-model="review.date"></md-datepicker>
-                    </md-input-container>
-                </div>
-                <div layout-gt="row">
-                    <md-input-container class="md-block" flex-gt>
-                        <input ng-model="review.address" places-auto-complete size=50 component-restrictions="{country:'us'}" aria-label="address">
-                    </md-input-container>
-                </div>
-                <div layout-gt="row">
-                    <h4>Food</h4>
-                    <md-radio-group layout="row" ng-model="review.food" aria-label="is food available?">
-                        <md-radio-button value="yes" class="md-primary" aria-label="yes"></md-radio-button>
-                        <md-radio-button value="no" class="md-primary" aria-label="no"></md-radio-button>
-                    </md-radio-group>
-                    <md-input-container>
-                        <label for="shopPrice">Price Range</label>
-                        <input type="number" name="shopPrice" ng-model="review.shopPrice">
-                    </md-input-container>
-                </div>
+                    <div layout="row">
+                        <md-input-container class="md-block">
+                            <input ng-model="ac.review.address" places-auto-complete size=50 component-restrictions="{country:'us'}" aria-label="address">
+                        </md-input-container>
+                    </div>
+
+                    <div layout="row">
+                        <div>
+                            <h4>Food</h4>
+                        </div>
+                        <md-radio-group layout="row" ng-model="ac.review.food" aria-label="is food available?">
+                            <md-radio-button value=true class="md-primary" aria-label="yes">Yes</md-radio-button>
+                            <md-radio-button value=false class="md-primary" aria-label="no">No</md-radio-button>
+                        </md-radio-group>
+                        <md-input-container>
+                            <label for="shopPrice">Price Range</label>
+                            <input type="number" name="shopPrice" ng-model="ac.review.shopPrice">
+                        </md-input-container>
+                    </div>
 
 
-                <div layout-gt="row">
-                    <md-input-container>
-                        <label>Review</label>
-                        <textarea ng-model="review.review" md-maxlength="150" rows="5" md-select-on-focus></textarea>
-                    </md-input-container>
-                </div>
-            </form>
-        </div>
-    </md-content>
+                    <div layout="row">
+                        <md-input-container class="md-block">
+                            <label>Review</label>
+                            <textarea ng-model="ac.review.review" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+                        </md-input-container>
+                    </div>
+
+                    <div layout="row" layout-align="center center">
+                        <md-button id="appSubmitButton" type="submit" ng-click="ac.addReview()" class="md-raised md-primary">Submit</md-button>
+                    </div>
+                </form>
+
+        </md-content>
+    </md-card>
+    </div>
 </div>
