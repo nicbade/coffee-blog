@@ -1,10 +1,14 @@
 myApp.controller('ShopController', function (AdminService, NgMap) {
-    
-    NgMap.getMap().then(function(map) {
-        console.log('getCenter:' , map.getCenter());
-        console.log('markers: ', map.markers);
-        console.log('shapes: ', map.shapes);
-    })
+    var self = this;
+    self.message = "You can not hide. :)";
 
+    NgMap.getMap().then(function(map) {
+        self.map = map;
+    });
+
+    self.callbackFunc = function(param) {
+        console.log('I know where ' + param + ' are. ' + self.message);
+        console.log('You are at ' + self.map.getCenter());
+    }
 
 });
