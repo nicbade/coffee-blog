@@ -25,11 +25,10 @@ myApp.config(function($routeProvider, $locationProvider) {
     .when('/shops', {
       templateUrl: '/views/templates/shops.html',
       controller: 'AdminController as ac',
-      resolve: {
-        getuser : function(UserService){
-          return UserService.getuser();
-        }
-      }
+    })
+    .when('/shopMap', {
+      templateUrl: '/views/templates/shopMap.html',
+      controller: 'ShopController as sc',
     })
     .when('/admin', {
       templateUrl: '/views/templates/admin.html',
@@ -41,6 +40,6 @@ myApp.config(function($routeProvider, $locationProvider) {
       }
     })
     .otherwise({
-      redirectTo: 'home'
+      redirectTo: 'shops'
     });
 });
