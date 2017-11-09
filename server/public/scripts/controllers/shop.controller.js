@@ -1,5 +1,7 @@
 myApp.controller('ShopController', function (AdminService, NgMap) {
     var self = this;
+    self.adminService = AdminService;
+    
     self.message = "You can not hide. :)";
 
     NgMap.getMap().then(function(map) {
@@ -9,6 +11,8 @@ myApp.controller('ShopController', function (AdminService, NgMap) {
     self.callbackFunc = function(param) {
         console.log('I know where ' + param + ' are. ' + self.message);
         console.log('You are at ' + self.map.getCenter());
-    }
+    };
+
+    
 
 });

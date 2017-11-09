@@ -7,10 +7,19 @@
         <input type="search" id="search" ng-model="searchBox" placeholder="Search...">
     </div>
 </div>
-<div layout="row" layout-xs="column" class="centered">
-    <div ng-repeat="review in ac.AdminService.review.list | filter: searchBox">
-        <!-- {{ac}} -->
-        <div flex>
+<!-- <div layout="row" layout-xs="column" class="centered"> -->
+
+<div>
+    <ng-map id="map" center="current-position">
+        <marker ng-repeat="review in ac.AdminService.review.list" position=" [ {{review.latitude}} , {{review.longitude}} ]" ></marker>
+    </ng-map>
+</div>
+
+
+<!-- <div ng-repeat="review in ac.AdminService.review.list | filter: searchBox"> -->
+<!-- {{ac}} -->
+
+<!-- <div flex>
             <md-content layout="row" layout-wrap layout-margin class="cards">
                 <div flex-xs layout="row">
                     <md-card class="card">
@@ -28,8 +37,8 @@
 
                 </div>
             </md-content>
-        </div>
-        <!-- <section class="cards">
+        </div> -->
+<!-- <section class="cards">
             <article class="card">
                     <span class="md-headline">{{review.name}}</span>
                     <span class="md-subhead">{{review.date | date}}</span>
@@ -39,6 +48,6 @@
                     <span>Review: {{review.review}}</span>
             </article>
         </section> -->
-    </div>
-</div>
+<!-- </div> -->
+<!-- </div> -->
 </div>

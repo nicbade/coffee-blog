@@ -11,54 +11,67 @@
     <md-card class="review" ng-controller="AdminController as ac">
         <md-content>
             <div>
-                <form name="form">
+                <form name="form" ng-submit="ac.addReview()">
                     <div layout="row">
-                        <md-input-container class="md-block">
+                        <!-- <md-input-container class="md-block">
                             <label for="shopName">Coffee Shop</label>
-                            <input type="text" name="shopName" ng-model="ac.review.shopName">
-                        </md-input-container>
+                            <input type="text" name="shopName" ng-model="ac.newReview.shopName">
+                        </md-input-container> -->
                         <md-input-container>
                             <label>Enter Date</label>
-                            <md-datepicker ng-model="ac.review.date"></md-datepicker>
+                            <md-datepicker ng-model="ac.newReview.date"></md-datepicker>
                         </md-input-container>
                     </div>
+            </div>
 
-                    <div layout="row">
-                        <md-input-container class="md-block">
-                            <input ng-model="ac.review.address" places-auto-complete size=50 component-restrictions="{country:'us'}" aria-label="address">
-                        </md-input-container>
-                    </div>
-                    <div>
-                        <h4>Food</h4>
-                    </div>
-                    <div layout="row">
+            <div layout="row">
+                <md-input-container class="md-block">
+                    <input ng-model="ac.newReview.place.autofilladdress" places-auto-complete size=50 component-restrictions="{country:'us'}"
+                        aria-label="address" on-place-changed="ac.placeAdded()">
+                </md-input-container>
+            </div>
+            </br>
+            <p>
+                <span id="labels">Name: </span>{{ac.newReview.place.name}}</p>
+            <p>
+                <span id="labels">Address: </span>{{ac.newReview.place.formatted_address}}</p>
+            <p>
+                <span id="labels">Phone: </span>{{ac.newReview.place.formatted_phone_number}}</p>
+            <p>
+                <span id="labels">Website: </span>
+                <a href="{{ac.newReview.place.website}}" target="_blank"></a>{{ac.newReview.place.website}}</p>
+            <!-- </div> -->
+            <div>
+                <h4>Food</h4>
+            </div>
+            <div layout="row">
 
-                        <md-radio-group layout="row" ng-model="ac.review.food" aria-label="is food available?">
-                            <md-radio-button value="Yes" class="md-primary" aria-label="yes">Yes</md-radio-button>
-                            <md-radio-button value="No" class="md-primary" aria-label="no">No</md-radio-button>
-                        </md-radio-group>
-                    </div>
-                    <div>
-                        <md-input-container>
-                            <label for="shopPrice">Price Range</label>
-                            <input type="number" name="shopPrice" ng-model="ac.review.shopPrice">
-                        </md-input-container>
-                    </div>
+                <md-radio-group layout="row" ng-model="ac.newReview.food" aria-label="is food available?">
+                    <md-radio-button value="Yes" class="md-primary" aria-label="yes">Yes</md-radio-button>
+                    <md-radio-button value="No" class="md-primary" aria-label="no">No</md-radio-button>
+                </md-radio-group>
+            </div>
+            <div>
+                <md-input-container>
+                    <label for="shopPrice">Price Range</label>
+                    <input type="number" name="shopPrice" ng-model="ac.newReview.shopPrice">
+                </md-input-container>
+            </div>
 
 
-                    <div layout="row">
-                        <md-input-container class="md-block">
-                            <label>Review</label>
-                            <textarea ng-model="ac.review.review" md-maxlength="150" cols="50" rows="5" md-select-on-focus></textarea>
-                        </md-input-container>
-                    </div>
+            <div layout="row">
+                <md-input-container class="md-block">
+                    <label>Review</label>
+                    <textarea ng-model="ac.newReview.review" md-maxlength="150" cols="50" rows="5" md-select-on-focus></textarea>
+                </md-input-container>
+            </div>
 
-                    <div layout="row" layout-align="center center">
-                        <md-button id="appSubmitButton" type="submit" ng-click="ac.addReview()" class="md-raised md-primary">Submit</md-button>
-                    </div>
-                </form>
+            <div layout="row" layout-align="center center">
+                <md-button id="appSubmitButton" type="submit" ng-click="ac.addReview()" class="md-raised md-primary">Submit</md-button>
+            </div>
+            </form>
 
         </md-content>
     </md-card>
-    </div>
+</div>
 </div>
