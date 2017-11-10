@@ -7,7 +7,9 @@ CREATE TABLE "review" (
 "price" int,
 "review" varchar(160),
 "latitude" numeric(200),
-"longitude" numeric(200)
+"longitude" numeric(200),
+"phone" numeric(30),
+"website" varchar(150)
 );
 
 CREATE TABLE "users" (

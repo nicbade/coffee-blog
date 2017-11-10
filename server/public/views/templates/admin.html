@@ -13,10 +13,6 @@
             <div>
                 <form name="form" ng-submit="ac.addReview()">
                     <div layout="row">
-                        <!-- <md-input-container class="md-block">
-                            <label for="shopName">Coffee Shop</label>
-                            <input type="text" name="shopName" ng-model="ac.newReview.shopName">
-                        </md-input-container> -->
                         <md-input-container>
                             <label>Enter Date</label>
                             <md-datepicker ng-model="ac.newReview.date"></md-datepicker>
@@ -40,7 +36,6 @@
             <p>
                 <span id="labels">Website: </span>
                 <a href="{{ac.newReview.place.website}}" target="_blank"></a>{{ac.newReview.place.website}}</p>
-            <!-- </div> -->
             <div>
                 <h4>Food</h4>
             </div>
@@ -54,7 +49,7 @@
             <div>
                 <md-input-container>
                     <label for="shopPrice">Price Range</label>
-                    <input type="number" name="shopPrice" ng-model="ac.newReview.shopPrice">
+                    <input type="text" name="shopPrice" ng-model="ac.newReview.shopPrice">
                 </md-input-container>
             </div>
 

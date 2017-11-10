@@ -26,10 +26,6 @@ myApp.config(function($routeProvider, $locationProvider) {
       templateUrl: '/views/templates/shops.html',
       controller: 'AdminController as ac',
     })
-    .when('/shopMap', {
-      templateUrl: '/views/templates/shopMap.html',
-      controller: 'ShopController as sc',
-    })
     .when('/admin', {
       templateUrl: '/views/templates/admin.html',
       controller: 'AdminController as ac',
