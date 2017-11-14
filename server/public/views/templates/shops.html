@@ -9,10 +9,22 @@
 </div>
 
 <div>
-    <ng-map id="map" center="current-position">
-        <marker id="{{review.id}}" ng-repeat="review in ac.AdminService.review.list" position=" [ {{review.latitude}} , {{review.longitude}} ]" on-click="ac.showDetail(review)">
+    <ng-map id="map" center="current-position" default-style="true" zoom="15">
+        <marker id="{{review.id}}" ng-repeat="review in ac.AdminService.review.list" position=" [ {{review.latitude}} , {{review.longitude}} ]"
+            on-click="ac.showDetail(review)">
         </marker>
 
+        <info-window id="reviewWindow">
+            <div ng-non-bindable="">
+                <div ng-repeat="review in ac.newReview.list"> 
+                    <p>id: {{review.id}}</p>  
+                    <p>position: {{anchor.getPosition()}}</p>
+                    <p>name: {{review.name}}</p>
+                    <p>price: {{review.price}}</p>
+                    <p>review: {{review.review}}</p>
+                </div>
+            </div>
+        </info-window>
 
     </ng-map>
 </div>
