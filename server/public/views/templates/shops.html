@@ -16,13 +16,19 @@
 
         <info-window id="reviewWindow">
             <div ng-non-bindable="">
-                <div ng-repeat="review in ac.newReview.list"> 
-                    <p>id: {{review.id}}</p>  
-                    <p>position: {{anchor.getPosition()}}</p>
-                    <p>name: {{review.name}}</p>
-                    <p>price: {{review.price}}</p>
-                    <p>review: {{review.review}}</p>
-                </div>
+                <h4>{{ac.newReview.review.name}}</h4>
+                <p>{{ac.newReview.review.address}}</p>
+                <p>{{ac.newReview.review.date | date:'MM/dd/yyyy'}}</p>
+                <p>Food available? {{ac.newReview.review.food}}</p>
+                <p>Price range: {{ac.newReview.review.price}}</p>
+                <p>Web Speed: {{ac.newReview.review.internet_speed}} mbps</p>
+                <p>{{ac.newReview.review.phone}}</p>
+                <p>{{ac.newReview.review.website}}</p>
+                <p>My Review: {{ac.newReview.review.review}}</p>
+                
+                
+                
+                
             </div>
         </info-window>
 

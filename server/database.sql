@@ -9,8 +9,10 @@ CREATE TABLE "review" (
 "latitude" numeric(200),
 "longitude" numeric(200),
 "phone" numeric(30),
-"website" varchar(150)
+"website" varchar(150),
+"internet_speed" numeric(20)
 );
+
 
 CREATE TABLE "users" (
   "id" serial primary key,

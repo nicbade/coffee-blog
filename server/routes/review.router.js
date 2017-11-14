@@ -19,7 +19,7 @@ router.post('/', function (req, res) {
                 res.sendStatus(500);
             } else {
                 // HAPPYPATH!
-                client.query('INSERT INTO review (name, date, address, food, price, review, latitude, longitude, phone, website) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10);', [newReview.place.name, newReview.date, newReview.place.formatted_address, newReview.food, newReview.shopPrice, newReview.review, newReview.place.latitude, newReview.place.longitude, newReview.place.formatted_phone_number, newReview.place.website], function (errorMakingQuery, result) {
+                client.query('INSERT INTO review (name, date, address, food, price, review, latitude, longitude, phone, website, internet_speed) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11);', [newReview.place.name, newReview.date, newReview.place.formatted_address, newReview.food, newReview.shopPrice, newReview.review, newReview.place.latitude, newReview.place.longitude, newReview.place.formatted_phone_number, newReview.place.website, newReview.webSpeed], function (errorMakingQuery, result) {
                     done();
                     if (errorMakingQuery) {
                         console.log('Error making database query', errorMakingQuery);

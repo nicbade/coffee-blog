@@ -5,7 +5,8 @@ myApp.controller('AdminController', function (AdminService, NgMap) {
   self.AdminService = AdminService;
   self.newReview = AdminService.review;
   console.log('self.newReview: ', self.newReview)
-
+  self.clickedReview = [];
+  
   NgMap.getMap().then(function (map) {
     self.map = map;
   });
@@ -28,7 +29,8 @@ myApp.controller('AdminController', function (AdminService, NgMap) {
   AdminService.getReview();
 
   self.showDetail = function (e, review) {
-    self.newReview.list.name = name;
+    console.log("button clicked", review)
+    self.newReview.review = review;
     self.map.showInfoWindow('reviewWindow', this);
   };
 
