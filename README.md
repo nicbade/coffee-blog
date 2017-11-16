@@ -1,38 +1,51 @@
-# Name of Project
+# Coffee Blog
 
-One Paragraph of project description goes here. Link to the live version of the app if it's hosted on Heroku.
+A basic coffee blog using Google Maps API
+[Heroku link](https://nics-coffee-blog.herokuapp.com/#/shops)
 
 ## Built With
 
-List technologies and frameworks here
+AngularJS, Nodejs, Expressjs, Postgresql, Google Maps API
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+npm install
 
 ### Prerequisites
 
 Link to software that is required to install the app (e.g. node).
 
 - [Node.js](https://nodejs.org/en/)
-- List other prerequisites here
 
 
 ### Installing
 
 Steps to get the development environment running.
 
-```sql
 CREATE TABLE "users" (
   "id" serial primary key,
   "username" varchar(80) not null UNIQUE,
   "password" varchar(240) not null
 );
-```
+
+CREATE TABLE "review" (
+"id" serial primary key,
+"name" varchar(80) not null,
+"date" varchar(60),
+"address" varchar(120),
+"food" varchar(10),
+"price" int,
+"review" varchar(160),
+"latitude" numeric(200),
+"longitude" numeric(200),
+"phone" numeric(30),
+"website" varchar(150),
+"internet_speed" numeric(20)
+);
 
 ## Screen Shot
 
-Include one or two screen shots of your project here (optional). Remove if unused.
+![Screen Shot] (./screenshot.png)
 
 ## Documentation
 

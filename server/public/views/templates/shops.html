@@ -14,7 +14,7 @@
         <marker id="{{review.id}}" ng-repeat="review in ac.AdminService.review.list" position=" [ {{review.latitude}} , {{review.longitude}} ]"
             on-click="ac.showDetail(review)">
         </marker>
-<!-- WHEN MARKER IS CLICKED IT WILL DISPLAY THIS WINDOW -->
+        <!-- WHEN MARKER IS CLICKED IT WILL DISPLAY THIS WINDOW -->
         <info-window id="reviewWindow">
             <div ng-non-bindable="">
                 <h4>{{ac.newReview.review.name}}</h4>
@@ -23,8 +23,12 @@
                 <p>Food available? {{ac.newReview.review.food}}</p>
                 <p>Price range: {{ac.newReview.review.price}}</p>
                 <p>Web Speed: {{ac.newReview.review.internet_speed}} mbps</p>
-                <p><a href="tel:{{ac.newReview.review.phone}}"> {{ac.newReview.review.phone}}</a></p>
-                <p><a href="{{ac.newReview.review.website}}"> {{ac.newReview.review.website}}</a></p>
+                <p>
+                    <a href="tel:{{ac.newReview.review.phone}}"> {{ac.newReview.review.phone}}</a>
+                </p>
+                <p>
+                    <a href="{{ac.newReview.review.website}}"> {{ac.newReview.review.website}}</a>
+                </p>
                 <p>My Review: {{ac.newReview.review.review}}</p>
             </div>
         </info-window>
