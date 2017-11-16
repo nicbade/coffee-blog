@@ -44,7 +44,7 @@ CREATE TABLE "review" (
 
 ## Screen Shot
 
-![Screen Shot] (./screenshot.png)
+<img width="1315" alt="screen shot 2017-11-16 at 10 42 20 am" src="https://user-images.githubusercontent.com/26586727/32904405-e7e19102-cabc-11e7-9f22-b0bd4010af15.png">
 
 ## Authors
 
