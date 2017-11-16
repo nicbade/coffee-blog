@@ -9,11 +9,12 @@
 </div>
 
 <div>
+    <!-- MARKERS DISPLAY ON DOM LOAD -->
     <ng-map id="map" center="current-position" default-style="true" zoom="15">
         <marker id="{{review.id}}" ng-repeat="review in ac.AdminService.review.list" position=" [ {{review.latitude}} , {{review.longitude}} ]"
             on-click="ac.showDetail(review)">
         </marker>
-
+<!-- WHEN MARKER IS CLICKED IT WILL DISPLAY THIS WINDOW -->
         <info-window id="reviewWindow">
             <div ng-non-bindable="">
                 <h4>{{ac.newReview.review.name}}</h4>
