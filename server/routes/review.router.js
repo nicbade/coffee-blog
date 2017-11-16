@@ -60,4 +60,33 @@ router.get('/', function(req, res) {
         } // end no error
     }); // end pool connect
 }); // end get
+
+// REVIEW DELETE ROUTE
+router.delete('/:id', function(req, res) {
+    if (req.isAuthenticated()) {
+        // send back user object from database
+        console.log('logged in', req.user);
+
+        var reviewId = req.params.id;
+        console.log('review delete was hit!', reviewId);
+        pool.connect(function(errorConnectingToDatabase, client, done) {
+            if (errorConnectingToDatabase) {
+                // when connecting to database failed
+                console.log('Error connecting to database', errorConnectingToDatabase);
+                res.sendStatus(500);
+            } else {
+                client.query('DELETE FROM review WHERE id=$1;', [reviewId],
+                function(errorMakingQuery, result) {
+                    done();
+                });
+                // when connecting to database worked!
+            }
+        });
+    } else {
+        // failure best handled on the server. do redirect here.
+        console.log('not logged in');
+        res.sendStatus(403);
+    }
+}); // end router.delete
+
 module.exports = router;

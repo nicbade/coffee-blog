@@ -1,4 +1,4 @@
-myApp.controller('AdminController', function (AdminService, NgMap) {
+myApp.controller('AdminController', function (AdminService, NgMap, $mdDialog) {
   // console.log('AdminController created');
 
   var self = this;
@@ -6,7 +6,7 @@ myApp.controller('AdminController', function (AdminService, NgMap) {
   self.newReview = AdminService.review;
   console.log('self.newReview: ', self.newReview)
   self.clickedReview = [];
-  
+
   NgMap.getMap().then(function (map) {
     self.map = map;
   });
@@ -28,10 +28,29 @@ myApp.controller('AdminController', function (AdminService, NgMap) {
   // INITIATES GET ROUTE FOR REVIEWS
   AdminService.getReview();
 
+  // MARKER CLICK DISPLAYS SPECIFIC REVIEW
   self.showDetail = function (e, review) {
-    console.log("button clicked", review)
+    // console.log("button clicked", review)
     self.newReview.review = review;
     self.map.showInfoWindow('reviewWindow', this);
   };
 
+  self.deleteReview = function (ev, reviewId) {
+    var confirm = $mdDialog.confirm()
+      .parent(angular.element(document.querySelector('#popupContainer')))
+      .clickOutsideToClose(true)
+      .title('Delete Review?')
+      .textContent('You must be an Admin to delete, are you sure?')
+      .ariaLabel('Delete Dialog')
+      .ok('Delete Training')
+      .cancel('Cancel')
+      .targetEvent(ev)
+    $mdDialog.show(confirm).then(function () {
+      // console.log("delete was clicked", reviewId);
+      AdminService.deleteReview(reviewId);
+      AdminService.getReview();
+    }, function() {
+      console.log('delete cancelled')
+    });
+  };
 });

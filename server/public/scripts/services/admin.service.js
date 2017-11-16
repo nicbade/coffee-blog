@@ -19,8 +19,16 @@ myApp.service('AdminService', function ($http, $location) {
     // REVIEW GET ROUTE
     self.getReview = function () {
         $http.get('/review').then(function (response) {
-            console.log('getReviews: ', response.data);
+            // console.log('getReviews: ', response.data);
             self.review.list = response.data;
         });
-    }
+    };
+
+    // REVIEW DELETE ROUTE
+    self.deleteReview = function (reviewId) {
+        console.log('deleteReview hit', reviewId);
+        $http.delete('/review/' + reviewId).then(function(response) {
+            self.getReview();
+        });
+    };
 });
