@@ -4,7 +4,8 @@ myApp.controller('AdminController', function (AdminService, NgMap, $mdDialog) {
   var self = this;
   self.AdminService = AdminService;
   self.newReview = AdminService.review;
-  console.log('self.newReview: ', self.newReview)
+  self.toggle = false;
+  // console.log('self.newReview: ', self.newReview)
   self.clickedReview = [];
 
   NgMap.getMap().then(function (map) {
@@ -19,10 +20,9 @@ myApp.controller('AdminController', function (AdminService, NgMap, $mdDialog) {
 
   // REVIEW POST ROUTE
   self.addReview = function () {
-    console.log('addReview post route: ', self.newReview)
+    // console.log('addReview post route: ', self.newReview)
     AdminService.addReview(self.newReview);
     self.newReview = {};
-    console.log('I\'m watching')
   };
 
   // INITIATES GET ROUTE FOR REVIEWS
@@ -35,6 +35,7 @@ myApp.controller('AdminController', function (AdminService, NgMap, $mdDialog) {
     self.map.showInfoWindow('reviewWindow', this);
   };
 
+  // DELETE ROUTE WITH POP UP DIALOG
   self.deleteReview = function (ev, reviewId) {
     var confirm = $mdDialog.confirm()
       .parent(angular.element(document.querySelector('#popupContainer')))
@@ -52,5 +53,12 @@ myApp.controller('AdminController', function (AdminService, NgMap, $mdDialog) {
     }, function() {
       console.log('delete cancelled')
     });
+  };
+
+  // EDIT ROUTE
+  self.editReview = function(reviewId) {
+    console.log('edit was clicked', reviewId);
+    AdminService.editReview(reviewId);
+    self.toggle = false;
   };
 });

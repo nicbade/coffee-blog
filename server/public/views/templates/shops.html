@@ -11,30 +11,33 @@
 <div>
     <!-- MARKERS DISPLAY ON DOM LOAD -->
     <ng-map id="map" center="current-position" default-style="true" zoom="15">
-        <marker id="{{review.id}}" ng-repeat="review in ac.AdminService.review.list" position=" [ {{review.latitude}} , {{review.longitude}} ]"
+        <marker id="{{review.id}}" ng-repeat="review in ac.AdminService.review.list | filter: searchBox" position=" [ {{review.latitude}} , {{review.longitude}} ]"
             on-click="ac.showDetail(review)">
         </marker>
         <!-- WHEN MARKER IS CLICKED IT WILL DISPLAY THIS WINDOW -->
-        <info-window id="reviewWindow">
-            <div ng-non-bindable="">
-                <h4>{{ac.newReview.review.name}}</h4>
-                <p>{{ac.newReview.review.address}}</p>
-                <p>{{ac.newReview.review.date | date:'MM/dd/yyyy'}}</p>
-                <p>Food available? {{ac.newReview.review.food}}</p>
-                <p>Price range: {{ac.newReview.review.price}}</p>
-                <p>Web Speed: {{ac.newReview.review.internet_speed}} mbps</p>
-                <p>
-                    <a href="tel:{{ac.newReview.review.phone}}"> {{ac.newReview.review.phone}}</a>
-                </p>
-                <p>
-                    <a href="{{ac.newReview.review.website}}"> {{ac.newReview.review.website}}</a>
-                </p>
-                <p>My Review: {{ac.newReview.review.review}}</p>
-                <md-button class="md-warn md-raised" ng-click="ac.deleteReview($event, ac.newReview.review.id)">Delete</md-button>
-            </div>
-        </info-window>
+        <div>
+            <info-window id="reviewWindow" ng-class="{'hidden': ac.toggle}">
+                <div>
+                    <div ng-non-bindable="">
+                        <h4>{{ac.newReview.review.name}}</h4>
+                        <p>{{ac.newReview.review.address}}</p>
+                        <p>{{ac.newReview.review.date | date:'MM/dd/yyyy'}}</p>
+                        <p>Food available? {{ac.newReview.review.food}}</p>
+                        <p>Price range: {{ac.newReview.review.price}}</p>
+                        <p>Web Speed: {{ac.newReview.review.internet_speed}} mbps</p>
+                        <p>
+                            <a href="tel:{{ac.newReview.review.phone}}"> {{ac.newReview.review.phone}}</a>
+                        </p>
+                        <p>
+                            <a href="{{ac.newReview.review.website}}"> {{ac.newReview.review.website}}</a>
+                        </p>
+                        <p>My Review: {{ac.newReview.review.review}}</p>
+                        <md-button class="md-warn md-raised" ng-click="ac.deleteReview($event, ac.newReview.review.id)">Delete</md-button>
+                    </div>
+                </div>
+            </info-window>
+        </div>
     </ng-map>
 </div>
 
 
-</div>
