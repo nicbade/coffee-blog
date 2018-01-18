@@ -1,7 +1,7 @@
 {
-  "name": "express_router_lecture_angular",
+  "name": "coffee-blog",
   "version": "1.0.0",
-  "description": "",
+  "description": "A coffee blog using google maps api",
   "main": "index.js",
   "scripts": {
     "test": "nodemon server/server.js",

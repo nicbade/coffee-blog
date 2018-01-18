@@ -7,13 +7,13 @@
         <input type="search" id="search" ng-model="searchBox" placeholder="Search...">
     </div>
 </div>
-
-<div>
+<div flex>
     <!-- MARKERS DISPLAY ON DOM LOAD -->
-    <ng-map id="map" center="current-position" default-style="true" zoom="15">
+    <ng-map id="map" center="current-position" default-style="true" zoom="15" flex>
         <marker id="{{review.id}}" ng-repeat="review in ac.AdminService.review.list | filter: searchBox" position=" [ {{review.latitude}} , {{review.longitude}} ]"
             on-click="ac.showDetail(review)">
         </marker>
+
         <!-- WHEN MARKER IS CLICKED IT WILL DISPLAY THIS WINDOW -->
         <div>
             <info-window id="reviewWindow" ng-class="{'hidden': ac.toggle}">
@@ -38,6 +38,7 @@
             </info-window>
         </div>
     </ng-map>
+
 </div>
 
 

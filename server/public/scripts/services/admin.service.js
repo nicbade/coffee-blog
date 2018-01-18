@@ -28,6 +28,7 @@ myApp.service('AdminService', function ($http, $location) {
     self.deleteReview = function (reviewId) {
         console.log('deleteReview hit', reviewId);
         $http.delete('/review/' + reviewId).then(function(response) {
+            console.log('response: ', response);
             self.getReview();
         });
     };
